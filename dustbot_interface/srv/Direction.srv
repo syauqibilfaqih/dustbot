@@ -1,0 +1,6 @@
+int8 n
+int8 w
+int8 s 
+int8 e
+---
+bool moved

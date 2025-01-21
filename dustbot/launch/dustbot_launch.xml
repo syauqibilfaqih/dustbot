@@ -1,0 +1,10 @@
+ <launch>
+    <arg name="N" default="10"/>
+    <arg name="P" default="5"/>
+
+    <node name="world" pkg="dustbot" exec="world" output="screen">
+        <param name="grid_size" value="$(var N)"/>
+        <param name="picks_up" value="$(var P)"/>
+    </node>
+    <node name="robot" pkg="dustbot" exec="robot" output="screen"/>
+ </launch>

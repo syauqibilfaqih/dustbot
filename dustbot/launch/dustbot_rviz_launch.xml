@@ -1,0 +1,16 @@
+ <launch>
+    <arg name="N" default="10"/>
+    <arg name="P" default="5"/>
+    <let name="rviz_config" value="$(find-pkg-share dustbot)/config/vizmark.rviz"/>
+
+    <node name="rviz2" pkg="rviz2" exec="rviz2" args="-d $(var rviz_config)"/>
+
+    <node name="world" pkg="dustbot" exec="world" output="screen">
+        <param name="grid_size" value="$(var N)"/>
+        <param name="picks_up" value="$(var P)"/>
+    </node>
+    <node name="robot" pkg="dustbot" exec="robot" output="screen"/>
+    <node name="vizmark" pkg="dustbot" exec="vizmark" output="screen">
+        <param name="grid_size" value="$(var N)"/>
+    </node>
+ </launch>
